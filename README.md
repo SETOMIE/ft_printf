@@ -8,7 +8,7 @@
 # Project Details
 **get_next_line.c** contains the main functions; *read_storage*, *extract_line*, *get_next_line*.
 
-**get_next_line_utils** contains the  helper functions used in the main .C file. Since libft is not allowed in the scope of this project, I modified the helper functions to be applicable to GNL.
+**get_next_line_utils** contains the helper functions used in the main .C file. Since libft is not allowed in the scope of this project, I modified the helper functions to be applicable to GNL.
 
 **get_next_line.h**
 
