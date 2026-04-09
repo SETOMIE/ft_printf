@@ -6,7 +6,7 @@
 /*   By: asyeo <asyeo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:07:19 by asyeo             #+#    #+#             */
-/*   Updated: 2026/01/15 14:49:16 by asyeo            ###   ########.fr       */
+/*   Updated: 2026/04/09 14:42:55 by asyeo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,26 @@ int	ft_format(char c, va_list args)
 		return (ft_puthex_pf(va_arg(args, unsigned int), HEX_UP));
 	if (c == '%')
 		return (write(1, "%", 1));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int		i;
-	int		count;
 	va_list	args;
+	int		count;
 
-	i = 0;
 	count = 0;
 	va_start(args, format);
-	while (format[i])
+	while (*format)
 	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			format[i++];
-			count += ft_format(args, format[i]);
+			format++;
+			count += ft_format(*format, args);
 		}
 		else
 			count += write(1, format, 1);
-		format[i++];
+		format++;
 	}
 	va_end(args);
 	return (count);

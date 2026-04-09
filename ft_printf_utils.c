@@ -6,7 +6,7 @@
 /*   By: asyeo <asyeo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 15:04:06 by asyeo             #+#    #+#             */
-/*   Updated: 2026/01/19 15:49:39 by asyeo            ###   ########.fr       */
+/*   Updated: 2026/04/09 13:31:28 by asyeo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,19 @@ int	ft_putptr_pf(void *p)
 int	ft_puthex_pf(unsigned long n, char *base)
 {
 	char	buffer[32];
-	int		i;
-	int		j;
+	int		len;
+	int		index;
 
-	i = 0;
-	j = 0;
+	len = 0;
+	index = 0;
 	if (!n)
 		return (write(1, "0", 1));
 	while (n)
 	{
-		buffer[j++] = base[n % 16];
+		buffer[index++] = base[n % 16];
 		n /= 16;
 	}
-	while (j--)
-		i += write(1, &buffer[j], 1);
-	return (i);
+	while (index--)
+		len += write(1, &buffer[index], 1);
+	return (len);
 }
